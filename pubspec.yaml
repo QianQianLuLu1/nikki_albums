@@ -164,6 +164,7 @@ flutter:
 
   shaders:
     - assets/shaders/image_fragment.frag
+    - assets/shaders/liquid_glass_shader.frag
 
   fonts:
     - family: RanAppKey

@@ -19,6 +19,7 @@ import "package:nikki_albums/modules/nikkias/nikkias.dart";
 import "package:nikki_albums/modules/tutorial/tutorial.dart";
 import "package:nikki_albums/widgets/app/component.dart";
 import "package:nikki_albums/widgets/common/component.dart";
+import "package:nikki_albums/widgets/glass/liquid_glass_panel.dart";
 import "package:nikki_albums/utils/system/system.dart";
 import "package:nikki_albums/utils/path.dart";
 import "package:nikki_albums/utils/Image.dart";
@@ -1319,11 +1320,11 @@ class _ToolBarState extends State<ToolBar> {
       child: Stack(
         children: [
           Positioned.fill(
-            child: ClipRect(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                child: Container(),
-              ),
+            child: LiquidGlassPanel(
+              blurSigma: 10,
+              enableSpecular: true,
+              enableRefraction: false, // 相册顶栏背后是滚动的任意相册网格，属任意背景，按 A 方案不启用折射
+              child: const SizedBox.shrink(),
             ),
           ),
           Positioned.fill(
